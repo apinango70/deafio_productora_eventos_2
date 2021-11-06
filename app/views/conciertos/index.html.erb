@@ -1,0 +1,36 @@
+
+<h1>Conciertos V2</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Grupo</th>
+      <th>Cantidad de integrantes</th>
+      <th>Fecha en que debutó</th>
+      <th>Conformación del grupo</th>
+      <th>lugar</th>
+      <th>Fecha concierto</th>
+      <th>Asistentes</th>
+      <th>Duración</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @conciertos.each do |concierto| %>
+      <tr>
+
+        <td><%= concierto.grupo %></td>
+        <td><%= concierto.grupo.cantidad_integrantes %></td>
+        <td><%= concierto.grupo.fecha_debut %></td>
+        <td><%= concierto.grupo.conformacion %></td>
+        <td><%= concierto.lugar %></td>
+        <td><%= concierto.fecha_concierto %></td>
+        <td><%= concierto.asistentes %></td>
+        <td><%= concierto.duracion %></td>
+        <td><%=link_to 'Mostrar', concierto%></td>
+        <td> <%= link_to 'Editar', edit_concierto_path(concierto) %></td>
+        <td> <%= link_to 'Eliminar concierto', concierto, method: :delete, data: {confirm: 'Estas seguro ?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Nuevo Concierto', new_concierto_path %>

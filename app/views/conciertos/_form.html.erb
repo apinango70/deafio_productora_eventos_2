@@ -1,0 +1,37 @@
+<%= form_with(model: [@grupo, concierto], local: true) do |form| %>
+<% if concierto.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(concierto.errors.count, "error") %> evitan que este concierto se pueda registrar<:/h2>
+        <ul>
+          <% concierto.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+  <div class="field">
+    <%= form.label :lugar %>
+    <%= form.text_field :lugar %>
+    <br>
+    <%= form.label :fecha_concierto %>
+    <%= form.text_field :fecha_concierto %>
+    <br>
+    <%= form.label :asistentes %>
+    <%= form.text_field :asistentes %>
+    <br>
+    <%= form.label :duracion %>
+    <%= form.text_field :duracion %>
+    <br>
+  </div>
+
+  <div class="field">
+    <%= form.label :grupo %>
+    <%= form.select :grupo_id, @grupo.map{|grupo| [grupo.nombre, grupo.id] }, prompt: "Seleccione un grupo.." %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <% end %>

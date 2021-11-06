@@ -1,0 +1,26 @@
+
+<p>
+  <strong>Grupo:</strong>
+  <%= @concierto.grupo %>
+</p>
+<p>
+  <strong>Lugar:</strong>
+  <%= @concierto.lugar %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+<td><%= @concierto.fecha_concierto %></td>
+  </p>
+
+<p>
+  <strong>Asistentes:</strong>
+<td><%= @concierto.asistentes %></td>
+</p>
+
+<p>
+  <strong>Duración:</strong>
+<td><%= @concierto.duracion %></td>
+</p>
+
+<%= link_to 'Regresar', conciertos_path %>
